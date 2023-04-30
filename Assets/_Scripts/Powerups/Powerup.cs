@@ -2,42 +2,7 @@ using DG.Tweening;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public abstract class Powerup : MonoBehaviour {
-
-    [SerializeField] GameObject explosion;
-    float speed;
-    float rotationSpeed;
-
-    protected Player player;
-
-    private void Awake() {
-        speed = Random.Range(4, 5);
-        rotationSpeed = Random.Range(-20, 20);
-        player = FindObjectOfType<Player>();
-    }
-
-    private void Update() {
-        transform.Rotate(new Vector3(0, 0, rotationSpeed * Time.deltaTime));
-        transform.position -= new Vector3(0, speed * Time.deltaTime);
-
-        if (transform.position.y <= -6) {
-            Destroy(gameObject);
-        }
-    }
-
-    private async void Death() {
-        Camera.main.transform.DOShakePosition(.5f);
-
-        speed = 0;
-        Destroy(GetComponent<Collider2D>());
-
-        GameObject sr = Instantiate(explosion, transform.position, transform.rotation);
-
-        Destroy(gameObject);
-        await Task.Delay(1000);
-
-        Destroy(sr);
-    }
+public abstract class Powerup : FallingObject {
 
     public async void IApply() {
         Death();

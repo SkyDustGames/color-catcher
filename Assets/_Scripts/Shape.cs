@@ -2,15 +2,9 @@ using UnityEngine;
 using DG.Tweening;
 using System.Threading.Tasks;
 
-public class Shape : MonoBehaviour {
+public class Shape : FallingObject {
 
     public static Color[] colors = new Color[] { Color.red, Color.white, Color.cyan, Color.green, Color.magenta, Color.gray };
-
-    [SerializeField] GameObject explosion;
-    SpriteRenderer spriteRenderer;
-    Player player;
-    float rotationSpeed;
-    float speed;
 
     [HideInInspector]
     public Color Color {
@@ -20,22 +14,6 @@ public class Shape : MonoBehaviour {
 
         set {
             spriteRenderer.color = value;
-        }
-    }
-
-    private void Awake() {
-        rotationSpeed = Random.Range(-20, 20);
-        speed = Random.Range(4, 5);
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        player = FindObjectOfType<Player>();
-    }
-
-    private void Update() {
-        transform.Rotate(new Vector3(0, 0, rotationSpeed * Time.deltaTime));
-        transform.position -= new Vector3(0, speed * Time.deltaTime);
-
-        if (transform.position.y <= -6) {
-            Destroy(gameObject);
         }
     }
 
