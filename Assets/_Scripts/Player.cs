@@ -95,7 +95,7 @@ public class Player : MonoBehaviour {
     public async void Death(Sequence s) {
         await System.Threading.Tasks.Task.Delay(5000);
         s.Kill(true);
-        Scenes.instance.ReloadScene();
+        Scenes.instance.LoadScene(0);
     }
 
     public void SpeedUp(float amount = 50) {

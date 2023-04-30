@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7f6b7afbf9e1e6543b278c2d7561e34a
+guid: fc8f07a5b9f664043969b455a991b218
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -11,10 +11,8 @@ TrueTypeFontImporter:
   fontNames:
   - Solway
   fallbackFontReferences:
-  - {fileID: 12800000, guid: 50272de9a9c00074398feee4632f9312, type: 3}
-  - {fileID: 12800000, guid: f2f6fc4eb5e0f9a4886b678774e13431, type: 3}
-  - {fileID: 12800000, guid: 3cb9200608de8474fa61d8c583e4b93e, type: 3}
-  - {fileID: 12800000, guid: 5f2ec3e31fd3a1f45b2d5513037c5ecb, type: 3}
+  - {fileID: 12800000, guid: 1b16b8e2a7ef2b04797af33d8661f69b, type: 3}
+  - {fileID: 12800000, guid: 7f6b7afbf9e1e6543b278c2d7561e34a, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
