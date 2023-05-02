@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using DG.Tweening;
 using System.Collections;
@@ -8,7 +7,7 @@ public class Player : MonoBehaviour {
     [SerializeField] float speed;
     [SerializeField] int lives;
     [SerializeField] GameObject explosion;
-    [SerializeField] TextMeshProUGUI tLives;
+    [SerializeField] GameObject[] tLives;
     [SerializeField] Sprite[] sprites;
     int startLives;
     Rigidbody2D rb;
@@ -80,7 +79,14 @@ public class Player : MonoBehaviour {
 
     public void Damage(int amount = 1) {
         lives -= amount;
-        tLives.text = string.Format("Lives: {0}", lives);
+        if (amount <= 0) {
+            for (int i = 0; i < lives; i++) {
+                tLives[i].SetActive(true);
+            }
+        } else {
+            tLives[lives].SetActive(false);
+        }
+
         if (lives <= 0) {
             Instantiate(explosion, transform.position, transform.rotation).GetComponent<SpriteRenderer>().color = Color;
             Destroy(gameObject);
