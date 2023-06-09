@@ -26,6 +26,7 @@ public class Git : EditorWindow {
     private void OnGUI() {
         commitMessage = EditorGUILayout.TextField(commitMessage);
         branch = EditorGUILayout.TextField(branch);
+        remote = EditorGUILayout.TextField(remote);
 
         if (GUILayout.Button("Add All"))
             StartProcess("git", "add --all");

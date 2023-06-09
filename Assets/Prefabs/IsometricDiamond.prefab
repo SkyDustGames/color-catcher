@@ -128,3 +128,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 2075219898027340273, guid: a8e125c1f539e8741a6b39a299343db9, type: 3}
+  sound: Collect
