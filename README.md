@@ -1,5 +1,5 @@
 # Color Catcher
-A simple Unity game where you collect shapes of the same color to gain points.
+    A simple Godot game where you collect shapes of the same color to gain points.
 
 ## Rules
 You are a shape, and you can only move horizontally. You are assigned a random color every time you collect one.
