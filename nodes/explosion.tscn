@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7xuojvlx17wk"]
-
-[ext_resource type="Texture2D" uid="uid://cgf0uoc86lrol" path="res://sprites/circle.png" id="1_yn3cr"]
-[ext_resource type="Script" path="res://scripts/ExplosionEffect.gd" id="2_h2l0l"]
-
-[node name="Explosion" type="Sprite2D"]
-scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("1_yn3cr")
-script = ExtResource("2_h2l0l")
