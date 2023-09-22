@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ey2fkjg2vy1s"]
+
+[ext_resource type="Texture2D" uid="uid://cuom1j2byvewg" path="res://sprites/square.png" id="1_ifijg"]
+[ext_resource type="Script" path="res://scripts/Shape.gd" id="1_ipmqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pd4p"]
+size = Vector2(90, 90)
+
+[node name="SquareShape" type="RigidBody2D"]
+max_contacts_reported = 1
+contact_monitor = true
+angular_velocity = 4.36332
+angular_damp_mode = 1
+script = ExtResource("1_ipmqv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_ifijg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8pd4p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1j6x275jnwhc"]
+
+[ext_resource type="Script" path="res://scripts/ui/Menu.gd" id="1_l0yc6"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l0yc6")
+
+[node name="Restart" type="Button" parent="."]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 274.0
+offset_right = 327.0
+offset_bottom = 383.0
+theme_override_font_sizes/font_size = 35
+text = "Restart"
+
+[node name="Menu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 406.0
+offset_right = 327.0
+offset_bottom = 515.0
+theme_override_font_sizes/font_size = 35
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 540.0
+offset_right = 325.0
+offset_bottom = 649.0
+theme_override_font_sizes/font_size = 35
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 151.0
+offset_right = 446.0
+offset_bottom = 257.0
+rotation = -0.174533
+theme_override_font_sizes/font_size = 75
+text = "Game Over!"
+
+[connection signal="pressed" from="Restart" to="." method="play"]
+[connection signal="pressed" from="Menu" to="." method="back_to_menu"]
+[connection signal="pressed" from="Quit" to="." method="quit"]
