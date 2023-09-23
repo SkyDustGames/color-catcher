@@ -16,7 +16,6 @@ func back_to_menu():
 	tree.change_scene_to_file("res://scenes/menu.tscn")
 
 func quit():
-	tree.notification(NOTIFICATION_WM_CLOSE_REQUEST)
 	tree.quit(0)
 
 func change_active(new: Control):

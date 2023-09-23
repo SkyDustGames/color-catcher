@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp7vnardlgioa"]
+[gd_scene load_steps=5 format=3 uid="uid://cp7vnardlgioa"]
 
 [ext_resource type="Script" path="res://scripts/ui/Menu.gd" id="1_0bigu"]
 [ext_resource type="Script" path="res://scripts/ui/Main.gd" id="2_d3acg"]
+[ext_resource type="Script" path="res://scripts/ui/Settings.gd" id="3_n2yob"]
+[ext_resource type="Script" path="res://scripts/ui/Skins.gd" id="4_7p7u3"]
 
 [node name="Menu" type="Control" node_paths=PackedStringArray("active", "disable_on_ready")]
 layout_mode = 3
@@ -72,6 +74,7 @@ visible = false
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
+script = ExtResource("3_n2yob")
 
 [node name="Label" type="Label" parent="Settings"]
 layout_mode = 1
@@ -83,20 +86,21 @@ offset_bottom = 109.0
 theme_override_font_sizes/font_size = 50
 text = "Settings"
 
-[node name="QuitButton" type="Button" parent="Settings"]
+[node name="BackButton" type="Button" parent="Settings"]
 layout_mode = 0
 offset_left = 1125.0
 offset_top = 612.0
 offset_right = 1259.0
 offset_bottom = 689.0
 theme_override_font_sizes/font_size = 25
-text = "Quit"
+text = "Back"
 
 [node name="Skins" type="Control" parent="."]
 visible = false
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
+script = ExtResource("4_7p7u3")
 
 [node name="Label" type="Label" parent="Skins"]
 layout_mode = 1
@@ -108,16 +112,18 @@ offset_bottom = 109.0
 theme_override_font_sizes/font_size = 50
 text = "Skins"
 
-[node name="QuitButton" type="Button" parent="Skins"]
+[node name="BackButton" type="Button" parent="Skins"]
 layout_mode = 0
 offset_left = 1125.0
 offset_top = 612.0
 offset_right = 1259.0
 offset_bottom = 689.0
 theme_override_font_sizes/font_size = 25
-text = "Quit"
+text = "Back"
 
 [connection signal="pressed" from="Main/SettingsButton" to="Main" method="settings"]
 [connection signal="pressed" from="Main/PlayButton" to="." method="play"]
 [connection signal="pressed" from="Main/SkinsButton" to="Main" method="skins"]
 [connection signal="pressed" from="Main/QuitButton" to="." method="quit"]
+[connection signal="pressed" from="Settings/BackButton" to="Settings" method="back"]
+[connection signal="pressed" from="Skins/BackButton" to="Skins" method="back"]

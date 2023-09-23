@@ -37,7 +37,3 @@ func _process(_delta):
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-			
-func _notification(what):
-	if what == NOTIFICATION_WM_CLOSE_REQUEST or NOTIFICATION_WM_GO_BACK_REQUEST:
-		write_save(save)
