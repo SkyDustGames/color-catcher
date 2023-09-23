@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://csk3xm6dw8yq3"]
+
+[ext_resource type="Script" path="res://scripts/Shape.gd" id="1_te4yx"]
+[ext_resource type="Texture2D" uid="uid://cgf0uoc86lrol" path="res://sprites/circle.png" id="2_gvu0g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ph44x"]
+radius = 45.0
+
+[node name="CircleShape" type="RigidBody2D"]
+max_contacts_reported = 1
+contact_monitor = true
+angular_velocity = 4.36332
+angular_damp_mode = 1
+script = ExtResource("1_te4yx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_gvu0g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ph44x")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

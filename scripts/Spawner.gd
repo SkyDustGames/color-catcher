@@ -1,6 +1,12 @@
 extends Timer
 
-var shapes = [ preload("res://nodes/square.tscn") ]
+var shapes = [
+	preload("res://nodes/shapes/square.tscn"),
+	preload("res://nodes/shapes/circle.tscn"),
+	preload("res://nodes/shapes/triangle.tscn"),
+	preload("res://nodes/shapes/hexagon.tscn")
+]
+
 @export var time_decrease: float
 @export var min_time: float
 

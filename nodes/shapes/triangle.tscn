@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://baif6wtnxcks6"]
+
+[ext_resource type="Script" path="res://scripts/Shape.gd" id="1_b6jmp"]
+[ext_resource type="Texture2D" uid="uid://67qwuq2xxghq" path="res://sprites/triangle.png" id="2_ns7y1"]
+
+[node name="TriangleShape" type="RigidBody2D"]
+max_contacts_reported = 1
+contact_monitor = true
+angular_velocity = 4.36332
+angular_damp_mode = 1
+script = ExtResource("1_b6jmp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_ns7y1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-46, 45, 0, -34, 46, 45)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
