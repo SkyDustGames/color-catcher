@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6yw3fe0pr4st"]
+
+[ext_resource type="Script" path="res://scripts/powerups/SpeedPowerup.gd" id="1_5vqkm"]
+[ext_resource type="Texture2D" uid="uid://egxi1l4uhqw7" path="res://sprites/speed.png" id="2_uevlj"]
+
+[node name="SpeedPowerup" type="RigidBody2D"]
+process_mode = 1
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_5vqkm")
+increase = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_uevlj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-32, -21, -32, -21, -7, -32, 5, -14, 1, -12, 17, 3, 11, 6, 31, 31, -3, 12, 4, 9, -18, -4, -10, -7)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

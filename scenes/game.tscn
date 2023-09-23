@@ -86,6 +86,7 @@ autostart = true
 script = ExtResource("3_g6cy7")
 time_decrease = 0.1
 min_time = 0.5
+powerup_chance = 0.5
 
 [node name="Setup" type="Node2D" parent="."]
 

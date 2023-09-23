@@ -19,7 +19,8 @@ var lives = 3
 func _ready():
 	highscore = Global.save.get("score", 0)
 	highscoreText.text = "Highscore: " + str(highscore)
-	set_color(Global.colors[randi() % Global.colors.size()])
+	color = Global.colors[randi() % Global.colors.size()]
+	sprite.modulate = color
 
 func _process(_delta):
 	if Input.is_action_just_pressed("move_right"):
@@ -52,7 +53,14 @@ func add_score():
 		Global.save["score"] = highscore
 
 	scoreText.text = "Score: " + str(score)
+
+func heal():
+	if lives >= 3:
+		return
 	
+	hearts[lives].show()
+	lives += 1
+
 func damage():
 	lives -= 1
 	hearts[lives].hide()
