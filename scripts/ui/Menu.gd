@@ -17,6 +17,7 @@ func back_to_menu():
 
 func quit():
 	tree.notification(NOTIFICATION_WM_CLOSE_REQUEST)
+	tree.quit(0)
 
 func change_active(new: Control):
 	if active != null:

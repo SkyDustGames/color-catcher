@@ -15,8 +15,11 @@ run/main_scene="res://scenes/menu.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="SkyDust/ColorCatcher"
 config/features=PackedStringArray("4.1", "Mobile")
-boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
+boot_splash/bg_color=Color(0.501961, 0.501961, 0, 1)
+boot_splash/image="res://sprites/heal.png"
+boot_splash/fullsize=false
 config/icon="res://sprites/icon.svg"
+boot_splash/minimum_display_time=2500
 
 [autoload]
 

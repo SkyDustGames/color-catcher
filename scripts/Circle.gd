@@ -6,7 +6,7 @@ extends RigidBody2D
 # --- UI --- #
 @onready var scoreText = $"../../CanvasLayer/Score"
 @onready var highscoreText = $"../../CanvasLayer/Highscore"
-@onready var livesText = $"../../CanvasLayer/Lives"
+@onready var hearts = $"../../CanvasLayer/Lives".get_children()
 
 var movement: float
 var color
@@ -55,6 +55,6 @@ func add_score():
 	
 func damage():
 	lives -= 1
-	livesText.text = "Lives: " + str(lives)
+	hearts[lives].hide()
 	if lives <= 0:
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
