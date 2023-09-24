@@ -10,12 +10,14 @@ const colors = [
 func load_save():
 	var default = {
 		"score": 0,
-		"skins": [0],
+		"skins": ["0"],
 		"settings": {
 			"post_processing": true,
 			"volume": [0.5, 0.5],
 			"fullscreen": false
-		}
+		},
+		"skin": "Circle",
+		"coins": 0
 	}
 	
 	if not FileAccess.file_exists("user://game.save"):
@@ -30,6 +32,10 @@ func write_save(dict):
 	file.store_line(JSON.stringify(dict))
 	
 @onready var save: Dictionary = load_save()
+var skin: Texture2D
+
+func _ready():
+	skin = Skins.skins[save.skin].sprite
 
 func _process(_delta):
 	if Input.is_action_just_pressed("toggle_fullscreen"):

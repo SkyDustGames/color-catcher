@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cp7vnardlgioa"]
+[gd_scene load_steps=6 format=3 uid="uid://cp7vnardlgioa"]
 
 [ext_resource type="Script" path="res://scripts/ui/Menu.gd" id="1_0bigu"]
 [ext_resource type="Script" path="res://scripts/ui/Main.gd" id="2_d3acg"]
 [ext_resource type="Script" path="res://scripts/ui/Settings.gd" id="3_n2yob"]
 [ext_resource type="Script" path="res://scripts/ui/Skins.gd" id="4_7p7u3"]
+[ext_resource type="Texture2D" uid="uid://cgf0uoc86lrol" path="res://sprites/circle.png" id="5_l0lry"]
 
 [node name="Menu" type="Control" node_paths=PackedStringArray("active", "disable_on_ready")]
 layout_mode = 3
@@ -111,6 +112,54 @@ offset_right = 223.0
 offset_bottom = 109.0
 theme_override_font_sizes/font_size = 50
 text = "Skins"
+
+[node name="GridContainer" type="GridContainer" parent="Skins"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 50.0
+offset_top = 125.0
+offset_right = 150.0
+offset_bottom = 225.0
+columns = 5
+
+[node name="Template" type="TextureButton" parent="Skins/GridContainer"]
+self_modulate = Color(0.0901961, 0.0901961, 0.0901961, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = ExtResource("5_l0lry")
+texture_pressed = ExtResource("5_l0lry")
+texture_hover = ExtResource("5_l0lry")
+texture_disabled = ExtResource("5_l0lry")
+texture_focused = ExtResource("5_l0lry")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label2" type="Label" parent="Skins/GridContainer/Template"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 42.0
+offset_right = 83.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "0 Score"
+horizontal_alignment = 1
+
+[node name="Skin" type="TextureRect" parent="Skins"]
+layout_mode = 0
+offset_left = 810.0
+offset_top = 229.0
+offset_right = 1066.0
+offset_bottom = 485.0
+texture = ExtResource("5_l0lry")
+
+[node name="Coins" type="Label" parent="Skins"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 621.0
+offset_right = 177.0
+offset_bottom = 659.0
+theme_override_font_sizes/font_size = 25
+text = "10 coins"
 
 [node name="BackButton" type="Button" parent="Skins"]
 layout_mode = 0

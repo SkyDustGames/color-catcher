@@ -21,6 +21,7 @@ func _ready():
 	highscoreText.text = "Highscore: " + str(highscore)
 	color = Global.colors[randi() % Global.colors.size()]
 	sprite.modulate = color
+	sprite.texture = Global.skin
 
 func _process(_delta):
 	if Input.is_action_just_pressed("move_right"):
@@ -65,4 +66,6 @@ func damage():
 	lives -= 1
 	hearts[lives].hide()
 	if lives <= 0:
+		Global.save.coins += score
+		Global.write_save(Global.save)
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
