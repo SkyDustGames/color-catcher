@@ -15,15 +15,15 @@ run/main_scene="res://scenes/menu.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="SkyDust/ColorCatcher"
 config/features=PackedStringArray("4.1", "Mobile")
-boot_splash/bg_color=Color(0.137255, 0.184314, 0.490196, 1)
-boot_splash/image="res://sprites/logo.png"
-boot_splash/fullsize=false
+boot_splash/bg_color=Color(0, 0.517647, 0.898039, 1)
+boot_splash/show_image=false
 config/icon="res://sprites/icon.svg"
 
 [autoload]
 
 Global="*res://scripts/Global.gd"
 SceneTransition="*res://nodes/scene_transition.tscn"
+SoundManager="*res://nodes/sound_manager.tscn"
 
 [display]
 

@@ -8,6 +8,6 @@ autostart = true
 script = ExtResource("1_5yudy")
 time_decrease = 0.1
 min_time = 0.5
-powerup_chance = 0.5
+powerup_chance = 0.3
 
 [connection signal="timeout" from="." to="." method="_on_timeout"]

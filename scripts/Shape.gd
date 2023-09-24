@@ -9,7 +9,7 @@ func _ready():
 	rotation_degrees = randf_range(-PI, PI)
 
 func _process(_delta):
-	if position.y >= 700:
+	if position.y >= 1000:
 		queue_free()
 		
 func handle_player_collision(player):

@@ -10,7 +10,6 @@ point_count = 2
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="PowerupParticles" type="CPUParticles2D"]
-emitting = false
 amount = 100
 one_shot = true
 explosiveness = 1.0

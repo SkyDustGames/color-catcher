@@ -26,3 +26,11 @@ You gain coins by playing the game. If you get a score of 15, you get 15 coins a
 ## Modding
 My plan is to make this game modifiable in some way, either by creating levels or by adding entire mechanics.  
 Currently, there is no way to do this. This section will be modified in the future.
+
+### Credits
+Game Design, Programming and Sound Effects by [SkyDustGames](https://skydust.itch.io)
+
+Music by [Zane Little](https://linktr.ee/zanelittle) (royalty-free)
+- Old Tricks
+- The Cool Factor
+- Hush Hamlet

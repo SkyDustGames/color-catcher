@@ -7,7 +7,7 @@ func _ready():
 	rotation_degrees = randf_range(-PI, PI)
 
 func _process(_delta):
-	if position.y >= 700:
+	if position.y >= 1000:
 		queue_free()
 
 func _handle_player_collision(_player):
@@ -16,6 +16,7 @@ func _handle_player_collision(_player):
 func _on_body_entered(body):
 	if body.name == "Circle":
 		_handle_player_collision(body)
+		SoundManager.play("powerup")
 		
 		var instance = particle.instantiate()
 		instance.position = position

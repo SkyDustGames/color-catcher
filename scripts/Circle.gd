@@ -54,6 +54,7 @@ func add_score():
 		Global.save["score"] = highscore
 
 	scoreText.text = "Score: " + str(score)
+	SoundManager.play("collect")
 
 func heal():
 	if lives >= 3:
@@ -69,3 +70,5 @@ func damage():
 		Global.save.coins += score
 		Global.write_save(Global.save)
 		SceneTransition.change_scene("res://scenes/game_over.tscn")
+		SoundManager.play_music("hush_hamlet")
+	SoundManager.play("explosion")

@@ -7,8 +7,10 @@
 process_mode = 1
 max_contacts_reported = 1
 contact_monitor = true
+angular_velocity = 4.36332
 script = ExtResource("1_5vqkm")
-increase = 10.0
+increase = 50.0
+max_speed = 800.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)

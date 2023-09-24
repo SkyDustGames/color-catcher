@@ -1,5 +1,9 @@
 extends CanvasLayer
 
+func _ready():
+	var animation = $AnimationPlayer
+	animation.play_backwards("dissolve")
+
 func change_scene(target):
 	var animation = $AnimationPlayer
 	animation.play("dissolve")

@@ -21,6 +21,7 @@ static var skins = {
 }
 
 func back():
+	SoundManager.play("select")
 	$"..".change_active($"../Main")
 
 func _ready():
@@ -41,6 +42,7 @@ func _ready():
 		instance.texture_focused = skins[skin].sprite
 		
 		instance.pressed.connect(func():
+			SoundManager.play("select")
 			if Global.save["skins"].has(str(index)):
 				Global.skin = skins[skin].sprite
 				Global.save.skin = skin
@@ -67,6 +69,6 @@ func _ready():
 		grid.add_child(instance)
 		index += 1
 	
-	display.texture = skins[Global.save.skin].sprite
+	display.texture = Global.skin
 	coins.text = str(Global.save.coins) + " coins"
 	template.queue_free()
