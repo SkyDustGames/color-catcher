@@ -1,16 +1,27 @@
 # Color Catcher
-    A simple Godot game where you collect shapes of the same color to gain points.
+A simple Godot game where you collect shapes of the same color to gain points.
 
 ## Rules
 You are a shape, and you can only move horizontally. You are assigned a random color every time you collect one.
 
-If you collect something with a different color, your color changes to that one and you lose a life. If it is of the same color (or a powerup), you gain points.
+You need to collect shapes that match your color.  
+If you collect something that doesn't match, you lose a life. Otherwise, you gain points.
 
 ### Powerups
-Powerups are **always yellow** and have particles in them. They can give you powers.
+Powerups are non-regular shapes. They can give you powers.
 
-*Heart Powerup:* Changes your shape and heals you.  
-*Lightning Powerup:* Increases your speed.
+*Heart:* Heals you.
+*Lightning:* Increases your speed.
+
+### Skins
+Use different shapes for your player.  
+Available skins are:
+- Circle (free)
+- Square (10 coins)
+- Triangle (20 coins)
+- Hexagon (30 coins)
+
+You gain coins by playing the game. If you get a score of 15, you get 15 coins at the end of the roudn.
 
 ## Modding
 My plan is to make this game modifiable in some way, either by creating levels or by adding entire mechanics.  

@@ -9,7 +9,8 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_s5tc4"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="PoweruupParticles" type="CPUParticles2D"]
+[node name="PowerupParticles" type="CPUParticles2D"]
+emitting = false
 amount = 100
 one_shot = true
 explosiveness = 1.0

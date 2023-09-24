@@ -15,15 +15,15 @@ run/main_scene="res://scenes/menu.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="SkyDust/ColorCatcher"
 config/features=PackedStringArray("4.1", "Mobile")
-boot_splash/bg_color=Color(0.501961, 0.501961, 0, 1)
-boot_splash/image="res://sprites/heal.png"
+boot_splash/bg_color=Color(0.137255, 0.184314, 0.490196, 1)
+boot_splash/image="res://sprites/logo.png"
 boot_splash/fullsize=false
 config/icon="res://sprites/icon.svg"
-boot_splash/minimum_display_time=2500
 
 [autoload]
 
 Global="*res://scripts/Global.gd"
+SceneTransition="*res://nodes/scene_transition.tscn"
 
 [display]
 
@@ -56,4 +56,4 @@ toggle_fullscreen={
 [rendering]
 
 renderer/rendering_method="mobile"
-environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+environment/defaults/default_clear_color=Color(0.105882, 0.105882, 0.105882, 1)

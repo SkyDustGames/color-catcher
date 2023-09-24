@@ -10,12 +10,13 @@ func _ready():
 		control.hide()
 
 func play():
-	tree.change_scene_to_file("res://scenes/game.tscn")
+	SceneTransition.change_scene("res://scenes/game.tscn")
 
 func back_to_menu():
-	tree.change_scene_to_file("res://scenes/menu.tscn")
+	SceneTransition.change_scene("res://scenes/menu.tscn")
 
 func quit():
+	Global.write_save(Global.save)
 	tree.quit(0)
 
 func change_active(new: Control):

@@ -68,4 +68,4 @@ func damage():
 	if lives <= 0:
 		Global.save.coins += score
 		Global.write_save(Global.save)
-		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+		SceneTransition.change_scene("res://scenes/game_over.tscn")

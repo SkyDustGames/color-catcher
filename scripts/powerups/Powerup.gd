@@ -20,5 +20,4 @@ func _on_body_entered(body):
 		var instance = particle.instantiate()
 		instance.position = position
 		add_sibling(instance)
-		
 		queue_free()
