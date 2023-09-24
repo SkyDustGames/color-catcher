@@ -21,7 +21,6 @@ static var skins = {
 }
 
 func back():
-	SoundManager.play("select")
 	$"..".change_active($"../Main")
 
 func _ready():

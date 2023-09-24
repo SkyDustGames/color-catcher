@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpn3k6nr748vg"]
+[gd_scene load_steps=7 format=3 uid="uid://cpn3k6nr748vg"]
 
 [ext_resource type="Texture2D" uid="uid://cv34onredtgte" path="res://sprites/heal.png" id="1_2h0xa"]
 [ext_resource type="FontFile" uid="uid://btt0co084ey81" path="res://Raleway.ttf" id="1_luub0"]
 [ext_resource type="PackedScene" uid="uid://bcr2tswsv0i7" path="res://nodes/player.tscn" id="3_evj01"]
 [ext_resource type="PackedScene" uid="uid://drtp3e75xjkrw" path="res://nodes/spawner.tscn" id="4_rg2xs"]
+[ext_resource type="Script" path="res://scripts/WorldEnvironment.gd" id="5_egtg2"]
 
 [sub_resource type="Environment" id="Environment_a3k1r"]
 background_mode = 3
@@ -74,6 +75,7 @@ expand_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Setup"]
 environment = SubResource("Environment_a3k1r")
+script = ExtResource("5_egtg2")
 
 [node name="Camera2D" type="Camera2D" parent="Setup"]
 position = Vector2(600, 325)

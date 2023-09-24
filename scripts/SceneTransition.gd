@@ -11,3 +11,5 @@ func change_scene(target):
 	await animation.animation_finished
 	get_tree().change_scene_to_file(target)
 	animation.play_backwards("dissolve")
+	
+	await animation.animation_finished

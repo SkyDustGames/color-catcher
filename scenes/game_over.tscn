@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1j6x275jnwhc"]
+[gd_scene load_steps=8 format=3 uid="uid://c1j6x275jnwhc"]
 
 [ext_resource type="Script" path="res://scripts/ui/Menu.gd" id="1_l0yc6"]
 [ext_resource type="FontFile" uid="uid://btt0co084ey81" path="res://Raleway.ttf" id="2_txt7f"]
 [ext_resource type="Texture2D" uid="uid://b2dpdrwsqrwd7" path="res://sprites/buttons/button_normal.png" id="3_g85kk"]
 [ext_resource type="Texture2D" uid="uid://cpkfsa8x8p8ti" path="res://sprites/buttons/button_press.png" id="4_llm4i"]
 [ext_resource type="Texture2D" uid="uid://cjmxrwkios7qh" path="res://sprites/buttons/button_hover.png" id="5_700e8"]
+[ext_resource type="Script" path="res://scripts/WorldEnvironment.gd" id="6_wm8op"]
+
+[sub_resource type="Environment" id="Environment_171rq"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.25
+glow_bloom = 0.5
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -88,6 +95,10 @@ offset_bottom = 92.0
 theme_override_fonts/font = ExtResource("2_txt7f")
 theme_override_font_sizes/font_size = 50
 text = "Quit"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_171rq")
+script = ExtResource("6_wm8op")
 
 [connection signal="pressed" from="Restart" to="." method="play"]
 [connection signal="pressed" from="MainMenu" to="." method="back_to_menu"]

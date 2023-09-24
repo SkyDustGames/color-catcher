@@ -13,7 +13,7 @@ func load_save():
 		"skins": ["0"],
 		"settings": {
 			"post_processing": true,
-			"volume": [0.5, 0.5],
+			"volume": [5.0, 0.0],
 			"fullscreen": false
 		},
 		"skin": "Circle",
@@ -36,6 +36,10 @@ var skin: Texture2D
 
 func _ready():
 	skin = Skins.skins[save.skin].sprite
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), save.settings.volume[0])
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Sound Effects"), save.settings.volume[1])
+	if save.settings.fullscreen:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("toggle_fullscreen"):
