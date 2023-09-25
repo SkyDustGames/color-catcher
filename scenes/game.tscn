@@ -73,18 +73,28 @@ offset_bottom = 40.0
 texture = ExtResource("1_2h0xa")
 expand_mode = 1
 
-[node name="PauseMenu" type="ColorRect" parent="CanvasLayer"]
+[node name="Pause" type="Control" parent="CanvasLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_p7fpw")
+
+[node name="PauseMenu" type="ColorRect" parent="CanvasLayer/Pause"]
 process_mode = 2
 visible = false
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.431373, 0.619608, 0.501961)
-script = ExtResource("3_p7fpw")
 
-[node name="Restart" type="TextureButton" parent="CanvasLayer/PauseMenu"]
+[node name="Restart" type="TextureButton" parent="CanvasLayer/Pause/PauseMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -101,7 +111,7 @@ texture_normal = ExtResource("4_x3a6v")
 texture_pressed = ExtResource("5_a4jwg")
 texture_hover = ExtResource("6_d1g0w")
 
-[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/Restart"]
+[node name="Label" type="Label" parent="CanvasLayer/Pause/PauseMenu/Restart"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -114,7 +124,7 @@ text = "Restart"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Menu" type="TextureButton" parent="CanvasLayer/PauseMenu"]
+[node name="Menu" type="TextureButton" parent="CanvasLayer/Pause/PauseMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -131,7 +141,7 @@ texture_normal = ExtResource("4_x3a6v")
 texture_pressed = ExtResource("5_a4jwg")
 texture_hover = ExtResource("6_d1g0w")
 
-[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/Menu"]
+[node name="Label" type="Label" parent="CanvasLayer/Pause/PauseMenu/Menu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -144,7 +154,7 @@ text = "Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Quit" type="TextureButton" parent="CanvasLayer/PauseMenu"]
+[node name="Quit" type="TextureButton" parent="CanvasLayer/Pause/PauseMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -161,7 +171,7 @@ texture_normal = ExtResource("4_x3a6v")
 texture_pressed = ExtResource("5_a4jwg")
 texture_hover = ExtResource("6_d1g0w")
 
-[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/Quit"]
+[node name="Label" type="Label" parent="CanvasLayer/Pause/PauseMenu/Quit"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -174,7 +184,7 @@ text = "Quit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/PauseMenu"]
+[node name="Label" type="Label" parent="CanvasLayer/Pause/PauseMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -192,8 +202,9 @@ theme_override_fonts/font = ExtResource("1_luub0")
 theme_override_font_sizes/font_size = 75
 text = "Paused"
 
-[node name="PauseButton" type="TextureButton" parent="CanvasLayer"]
+[node name="PauseButton" type="TextureButton" parent="CanvasLayer/Pause"]
 process_mode = 3
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -241,7 +252,7 @@ script = ExtResource("5_egtg2")
 [node name="Camera2D" type="Camera2D" parent="Setup"]
 position = Vector2(600, 325)
 
-[connection signal="pressed" from="CanvasLayer/PauseMenu/Restart" to="CanvasLayer/PauseMenu" method="_on_restart_pressed"]
-[connection signal="pressed" from="CanvasLayer/PauseMenu/Menu" to="CanvasLayer/PauseMenu" method="_on_menu_pressed"]
-[connection signal="pressed" from="CanvasLayer/PauseMenu/Quit" to="CanvasLayer/PauseMenu" method="_on_quit_pressed"]
-[connection signal="pressed" from="CanvasLayer/PauseButton" to="CanvasLayer/PauseMenu" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/PauseMenu/Restart" to="CanvasLayer/Pause" method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/PauseMenu/Menu" to="CanvasLayer/Pause" method="_on_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/PauseMenu/Quit" to="CanvasLayer/Pause" method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/PauseButton" to="CanvasLayer/Pause" method="_on_pause_button_pressed"]

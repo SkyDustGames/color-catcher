@@ -1,15 +1,20 @@
-extends ColorRect
+extends Control
 
 var paused = false
 @onready var environment = get_tree().current_scene.get_node("./Environment")
+@onready var menu = $PauseMenu
+
+func _input(event):
+	if event.is_action_pressed("pause"):
+		_on_pause_button_pressed()
 
 func _on_pause_button_pressed():
 	paused = not paused
 	get_tree().paused = paused
 	if paused:
-		show()
+		menu.show()
 	else:
-		hide()
+		menu.hide()
 	Global.write_save(Global.save)
 
 func _on_restart_pressed():
