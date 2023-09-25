@@ -1,11 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpn3k6nr748vg"]
+[gd_scene load_steps=15 format=3 uid="uid://cpn3k6nr748vg"]
 
 [ext_resource type="Texture2D" uid="uid://cv34onredtgte" path="res://sprites/heal.png" id="1_2h0xa"]
 [ext_resource type="FontFile" uid="uid://btt0co084ey81" path="res://Raleway.ttf" id="1_luub0"]
+[ext_resource type="Texture2D" uid="uid://w3qw4cn20mea" path="res://sprites/buttons/pause_normal.png" id="3_att1q"]
 [ext_resource type="PackedScene" uid="uid://bcr2tswsv0i7" path="res://nodes/player.tscn" id="3_evj01"]
+[ext_resource type="Script" path="res://scripts/ui/PauseMenu.gd" id="3_p7fpw"]
+[ext_resource type="Texture2D" uid="uid://cngh11spgwcud" path="res://sprites/buttons/pause_press.png" id="4_amj6p"]
 [ext_resource type="PackedScene" uid="uid://drtp3e75xjkrw" path="res://nodes/spawner.tscn" id="4_rg2xs"]
+[ext_resource type="Texture2D" uid="uid://b2dpdrwsqrwd7" path="res://sprites/buttons/button_normal.png" id="4_x3a6v"]
+[ext_resource type="Texture2D" uid="uid://djc8q2adrx1a4" path="res://sprites/buttons/pause_hover.png" id="5_7lokf"]
+[ext_resource type="Texture2D" uid="uid://cpkfsa8x8p8ti" path="res://sprites/buttons/button_press.png" id="5_a4jwg"]
 [ext_resource type="Script" path="res://scripts/WorldEnvironment.gd" id="5_egtg2"]
 [ext_resource type="Texture2D" uid="uid://dtgkv7saefrm4" path="res://sprites/empty.png" id="5_kobak"]
+[ext_resource type="Texture2D" uid="uid://cjmxrwkios7qh" path="res://sprites/buttons/button_hover.png" id="6_d1g0w"]
 
 [sub_resource type="Environment" id="Environment_a3k1r"]
 background_mode = 3
@@ -66,13 +73,152 @@ offset_bottom = 40.0
 texture = ExtResource("1_2h0xa")
 expand_mode = 1
 
+[node name="PauseMenu" type="ColorRect" parent="CanvasLayer"]
+process_mode = 2
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.431373, 0.619608, 0.501961)
+script = ExtResource("3_p7fpw")
+
+[node name="Restart" type="TextureButton" parent="CanvasLayer/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -385.0
+offset_top = 6.0
+offset_right = -147.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_x3a6v")
+texture_pressed = ExtResource("5_a4jwg")
+texture_hover = ExtResource("6_d1g0w")
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/Restart"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_luub0")
+theme_override_font_sizes/font_size = 50
+text = "Restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="TextureButton" parent="CanvasLayer/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.0
+offset_top = -59.5
+offset_right = 119.0
+offset_bottom = 59.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_x3a6v")
+texture_pressed = ExtResource("5_a4jwg")
+texture_hover = ExtResource("6_d1g0w")
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_luub0")
+theme_override_font_sizes/font_size = 50
+text = "Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="TextureButton" parent="CanvasLayer/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 150.0
+offset_top = 6.0
+offset_right = 388.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_x3a6v")
+texture_pressed = ExtResource("5_a4jwg")
+texture_hover = ExtResource("6_d1g0w")
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/Quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_luub0")
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.0
+offset_top = -152.0
+offset_right = -42.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.10472
+theme_override_fonts/font = ExtResource("1_luub0")
+theme_override_font_sizes/font_size = 75
+text = "Paused"
+
+[node name="PauseButton" type="TextureButton" parent="CanvasLayer"]
+process_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.0
+offset_top = 27.0
+offset_right = -36.0
+offset_bottom = 87.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("3_att1q")
+texture_pressed = ExtResource("4_amj6p")
+texture_hover = ExtResource("5_7lokf")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="Environment" type="Node2D" parent="."]
+process_mode = 1
 
 [node name="Circle" parent="Environment" instance=ExtResource("3_evj01")]
 
 [node name="Spawner" parent="Environment" instance=ExtResource("4_rg2xs")]
 
 [node name="MoveLeft" type="TouchScreenButton" parent="Environment"]
+visible = false
 position = Vector2(-2777, -1355)
 scale = Vector2(6.58594, 6.94531)
 texture_normal = ExtResource("5_kobak")
@@ -81,6 +227,7 @@ shape_visible = false
 action = "move_left"
 
 [node name="MoveRight" type="TouchScreenButton" parent="Environment"]
+visible = false
 position = Vector2(599, -1536)
 scale = Vector2(6.13281, 6.94141)
 texture_normal = ExtResource("5_kobak")
@@ -95,3 +242,8 @@ script = ExtResource("5_egtg2")
 
 [node name="Camera2D" type="Camera2D" parent="Setup"]
 position = Vector2(600, 325)
+
+[connection signal="pressed" from="CanvasLayer/PauseMenu/Restart" to="CanvasLayer/PauseMenu" method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/Menu" to="CanvasLayer/PauseMenu" method="_on_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/Quit" to="CanvasLayer/PauseMenu" method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseButton" to="CanvasLayer/PauseMenu" method="_on_pause_button_pressed"]

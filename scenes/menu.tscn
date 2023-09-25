@@ -25,11 +25,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0bigu")
-active = NodePath("Settings")
-disable_on_ready = [NodePath("Main"), NodePath("Skins")]
+active = NodePath("Main")
+disable_on_ready = [NodePath("Settings"), NodePath("Skins")]
 
 [node name="Main" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,22 +39,35 @@ script = ExtResource("2_d3acg")
 
 [node name="Label" type="Label" parent="Main"]
 layout_mode = 1
-anchors_preset = -1
-offset_left = 181.0
-offset_top = 183.0
-offset_right = 674.0
-offset_bottom = 290.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -399.0
+offset_top = -146.0
+offset_right = 94.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
 rotation = -0.0872665
 theme_override_fonts/font = ExtResource("3_jiu3b")
 theme_override_font_sizes/font_size = 75
 text = "Color Catcher"
 
 [node name="Settings" type="TextureButton" parent="Main"]
-layout_mode = 0
-offset_left = 254.0
-offset_top = 396.0
-offset_right = 492.0
-offset_bottom = 515.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.0
+offset_top = -59.5
+offset_right = 119.0
+offset_bottom = 59.5
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("3_fjj4i")
 texture_pressed = ExtResource("4_3ja5v")
 texture_hover = ExtResource("5_s5q3h")
@@ -72,11 +84,18 @@ theme_override_font_sizes/font_size = 50
 text = "Settings"
 
 [node name="Play" type="TextureButton" parent="Main"]
-layout_mode = 0
-offset_left = 521.0
-offset_top = 314.0
-offset_right = 759.0
-offset_bottom = 433.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -382.0
+offset_top = 41.0
+offset_right = -144.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("3_fjj4i")
 texture_pressed = ExtResource("4_3ja5v")
 texture_hover = ExtResource("5_s5q3h")
@@ -94,22 +113,35 @@ text = "Play"
 
 [node name="Highscore" type="Label" parent="Main"]
 layout_mode = 1
-anchors_preset = -1
-offset_left = 509.0
-offset_top = 437.0
-offset_right = 774.0
-offset_bottom = 470.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.5
+offset_top = 58.5
+offset_right = 132.5
+offset_bottom = 91.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_jiu3b")
 theme_override_font_sizes/font_size = 25
 text = "Highscore: 0"
 horizontal_alignment = 1
 
 [node name="Skins" type="TextureButton" parent="Main"]
-layout_mode = 0
-offset_left = 790.0
-offset_top = 391.0
-offset_right = 1028.0
-offset_bottom = 510.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 147.0
+offset_top = 41.0
+offset_right = 385.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("3_fjj4i")
 texture_pressed = ExtResource("4_3ja5v")
 texture_hover = ExtResource("5_s5q3h")
@@ -126,11 +158,18 @@ theme_override_font_sizes/font_size = 50
 text = "Skins"
 
 [node name="Quit" type="TextureButton" parent="Main"]
-layout_mode = 0
-offset_left = 1082.0
-offset_top = 606.0
-offset_right = 1177.0
-offset_bottom = 651.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -136.0
+offset_top = -74.0
+offset_right = -41.0
+offset_bottom = -29.0
+grow_horizontal = 0
+grow_vertical = 0
 texture_normal = ExtResource("3_fjj4i")
 texture_pressed = ExtResource("4_3ja5v")
 texture_hover = ExtResource("5_s5q3h")
@@ -149,6 +188,7 @@ theme_override_font_sizes/font_size = 25
 text = "Quit"
 
 [node name="Settings" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -159,21 +199,27 @@ script = ExtResource("3_n2yob")
 
 [node name="Label" type="Label" parent="Settings"]
 layout_mode = 1
-anchors_preset = -1
-offset_left = 91.0
-offset_top = 90.0
-offset_right = 285.0
-offset_bottom = 152.0
+offset_left = 59.0
+offset_top = 62.0
+offset_right = 253.0
+offset_bottom = 124.0
 theme_override_fonts/font = ExtResource("3_jiu3b")
 theme_override_font_sizes/font_size = 50
 text = "Settings"
 
 [node name="Back" type="TextureButton" parent="Settings"]
-layout_mode = 0
-offset_left = 1082.0
-offset_top = 606.0
-offset_right = 1177.0
-offset_bottom = 651.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -149.0
+offset_top = -85.0
+offset_right = -54.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
 texture_normal = ExtResource("3_fjj4i")
 texture_pressed = ExtResource("4_3ja5v")
 texture_hover = ExtResource("5_s5q3h")
@@ -192,11 +238,15 @@ theme_override_font_sizes/font_size = 25
 text = "Back"
 
 [node name="Music" type="HSlider" parent="Settings"]
-layout_mode = 0
-offset_left = 98.0
-offset_top = 269.0
-offset_right = 280.0
-offset_bottom = 315.0
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -72.0
+offset_right = 242.0
+offset_bottom = -26.0
+grow_vertical = 2
 min_value = -80.0
 max_value = 6.0
 value = 5.0
@@ -214,11 +264,15 @@ theme_override_font_sizes/font_size = 25
 text = "Music"
 
 [node name="SoundEffects" type="HSlider" parent="Settings"]
-layout_mode = 0
-offset_left = 98.0
-offset_top = 318.0
-offset_right = 280.0
-offset_bottom = 364.0
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -23.0
+offset_right = 242.0
+offset_bottom = 23.0
+grow_vertical = 2
 min_value = -80.0
 max_value = 6.0
 value = 5.0
@@ -236,21 +290,29 @@ theme_override_font_sizes/font_size = 25
 text = "Sound Effects"
 
 [node name="Fullscreen" type="CheckButton" parent="Settings"]
-layout_mode = 0
-offset_left = 93.0
-offset_top = 357.0
-offset_right = 137.0
-offset_bottom = 381.0
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = 16.0
+offset_right = 195.0
+offset_bottom = 46.0
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_jiu3b")
 theme_override_font_sizes/font_size = 18
 text = "Fullscreen"
 
 [node name="PostProcessing" type="CheckButton" parent="Settings"]
-layout_mode = 0
-offset_left = 93.0
-offset_top = 386.0
-offset_right = 137.0
-offset_bottom = 410.0
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = 45.0
+offset_right = 241.0
+offset_bottom = 75.0
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_jiu3b")
 theme_override_font_sizes/font_size = 18
 button_pressed = true
@@ -289,11 +351,10 @@ text = "10 coins"
 
 [node name="GridContainer" type="GridContainer" parent="Skins"]
 layout_mode = 1
-anchors_preset = -1
-offset_left = 115.0
-offset_top = 177.0
-offset_right = 215.0
-offset_bottom = 277.0
+offset_left = 100.0
+offset_top = 220.0
+offset_right = 200.0
+offset_bottom = 320.0
 
 [node name="Template" type="TextureButton" parent="Skins/GridContainer"]
 self_modulate = Color(0.0901961, 0.0901961, 0.0901961, 1)
@@ -307,7 +368,7 @@ texture_focused = ExtResource("5_l0lry")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label2" type="Label" parent="Skins/GridContainer/Template"]
+[node name="Label" type="Label" parent="Skins/GridContainer/Template"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 34.0
@@ -320,19 +381,33 @@ text = "0 coins"
 horizontal_alignment = 1
 
 [node name="Skin" type="TextureRect" parent="Skins"]
-layout_mode = 0
-offset_left = 810.0
-offset_top = 229.0
-offset_right = 1066.0
-offset_bottom = 485.0
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -385.0
+offset_top = -128.0
+offset_right = -129.0
+offset_bottom = 128.0
+grow_horizontal = 0
+grow_vertical = 2
 texture = ExtResource("5_l0lry")
 
 [node name="Back" type="TextureButton" parent="Skins"]
-layout_mode = 0
-offset_left = 1082.0
-offset_top = 606.0
-offset_right = 1177.0
-offset_bottom = 651.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -148.0
+offset_top = -85.0
+offset_right = -53.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
 texture_normal = ExtResource("3_fjj4i")
 texture_pressed = ExtResource("4_3ja5v")
 texture_hover = ExtResource("5_s5q3h")

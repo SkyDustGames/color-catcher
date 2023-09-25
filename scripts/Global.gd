@@ -1,10 +1,11 @@
 extends Node
 
 const colors = [
-	Color("#fcba03"),
-	Color("#32a852"),
-	Color("#4287f5"),
-	Color("#eb4034")
+	Color("#ff0000"),
+	Color("#ffffff"),
+	Color("#00ffff"),
+	Color("#00ff00"),
+	Color("#ff00ff")
 ]
 
 func load_save():
