@@ -218,7 +218,6 @@ process_mode = 1
 [node name="Spawner" parent="Environment" instance=ExtResource("4_rg2xs")]
 
 [node name="MoveLeft" type="TouchScreenButton" parent="Environment"]
-visible = false
 position = Vector2(-2777, -1355)
 scale = Vector2(6.58594, 6.94531)
 texture_normal = ExtResource("5_kobak")
@@ -227,7 +226,6 @@ shape_visible = false
 action = "move_left"
 
 [node name="MoveRight" type="TouchScreenButton" parent="Environment"]
-visible = false
 position = Vector2(599, -1536)
 scale = Vector2(6.13281, 6.94141)
 texture_normal = ExtResource("5_kobak")
