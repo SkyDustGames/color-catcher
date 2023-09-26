@@ -1,0 +1,278 @@
+[gd_scene load_steps=17 format=3 uid="uid://d0u358c0dlmvr"]
+
+[ext_resource type="FontFile" uid="uid://btt0co084ey81" path="res://Raleway.ttf" id="1_1uotr"]
+[ext_resource type="Texture2D" uid="uid://cv34onredtgte" path="res://sprites/heal.png" id="2_prq8l"]
+[ext_resource type="Script" path="res://scripts/ui/PauseMenu.gd" id="3_v6afm"]
+[ext_resource type="Texture2D" uid="uid://b2dpdrwsqrwd7" path="res://sprites/buttons/button_normal.png" id="4_l5sao"]
+[ext_resource type="Texture2D" uid="uid://cpkfsa8x8p8ti" path="res://sprites/buttons/button_press.png" id="5_eqw36"]
+[ext_resource type="Texture2D" uid="uid://cjmxrwkios7qh" path="res://sprites/buttons/button_hover.png" id="6_fy01g"]
+[ext_resource type="Texture2D" uid="uid://w3qw4cn20mea" path="res://sprites/buttons/pause_normal.png" id="7_p84o4"]
+[ext_resource type="Texture2D" uid="uid://cngh11spgwcud" path="res://sprites/buttons/pause_press.png" id="8_f8drd"]
+[ext_resource type="Texture2D" uid="uid://djc8q2adrx1a4" path="res://sprites/buttons/pause_hover.png" id="9_ws2a4"]
+[ext_resource type="Script" path="res://scripts/tutorial/Tutorial.gd" id="10_kjgod"]
+[ext_resource type="PackedScene" uid="uid://bcr2tswsv0i7" path="res://nodes/player.tscn" id="10_p386j"]
+[ext_resource type="Texture2D" uid="uid://dtgkv7saefrm4" path="res://sprites/empty.png" id="12_u1lqo"]
+[ext_resource type="Texture2D" uid="uid://opfnutd6owgn" path="res://sprites/tutorial/touch.png" id="13_ifsuw"]
+[ext_resource type="Script" path="res://scripts/WorldEnvironment.gd" id="13_p0yxc"]
+[ext_resource type="PackedScene" uid="uid://drtp3e75xjkrw" path="res://nodes/spawner.tscn" id="14_n1pm0"]
+
+[sub_resource type="Environment" id="Environment_a3k1r"]
+background_mode = 3
+glow_enabled = true
+glow_bloom = 1.0
+
+[node name="tutorial" type="Node2D"]
+metadata/_edit_horizontal_guides_ = []
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="CanvasLayer"]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 187.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("1_1uotr")
+theme_override_font_sizes/font_size = 36
+text = "Score: 0"
+
+[node name="Highscore" type="Label" parent="CanvasLayer"]
+offset_left = 50.0
+offset_top = 103.0
+offset_right = 122.0
+offset_bottom = 123.0
+theme_override_fonts/font = ExtResource("1_1uotr")
+theme_override_font_sizes/font_size = 20
+text = "Highscore: 0"
+
+[node name="Lives" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 51.0
+offset_top = 165.0
+offset_right = 191.0
+offset_bottom = 205.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Lives"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_prq8l")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Lives"]
+layout_mode = 0
+offset_left = 50.0
+offset_right = 90.0
+offset_bottom = 40.0
+texture = ExtResource("2_prq8l")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Lives"]
+layout_mode = 0
+offset_left = 100.0
+offset_right = 140.0
+offset_bottom = 40.0
+texture = ExtResource("2_prq8l")
+expand_mode = 1
+
+[node name="Pause" type="Control" parent="CanvasLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_v6afm")
+
+[node name="PauseMenu" type="ColorRect" parent="CanvasLayer/Pause"]
+process_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.431373, 0.619608, 0.501961)
+
+[node name="Restart" type="TextureButton" parent="CanvasLayer/Pause/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -385.0
+offset_top = 6.0
+offset_right = -147.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_l5sao")
+texture_pressed = ExtResource("5_eqw36")
+texture_hover = ExtResource("6_fy01g")
+
+[node name="Label" type="Label" parent="CanvasLayer/Pause/PauseMenu/Restart"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_1uotr")
+theme_override_font_sizes/font_size = 50
+text = "Restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="TextureButton" parent="CanvasLayer/Pause/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.0
+offset_top = -59.5
+offset_right = 119.0
+offset_bottom = 59.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_l5sao")
+texture_pressed = ExtResource("5_eqw36")
+texture_hover = ExtResource("6_fy01g")
+
+[node name="Label" type="Label" parent="CanvasLayer/Pause/PauseMenu/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_1uotr")
+theme_override_font_sizes/font_size = 50
+text = "Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="TextureButton" parent="CanvasLayer/Pause/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 150.0
+offset_top = 6.0
+offset_right = 388.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_l5sao")
+texture_pressed = ExtResource("5_eqw36")
+texture_hover = ExtResource("6_fy01g")
+
+[node name="Label" type="Label" parent="CanvasLayer/Pause/PauseMenu/Quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_1uotr")
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Pause/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.0
+offset_top = -152.0
+offset_right = -42.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.10472
+theme_override_fonts/font = ExtResource("1_1uotr")
+theme_override_font_sizes/font_size = 75
+text = "Paused"
+
+[node name="PauseButton" type="TextureButton" parent="CanvasLayer/Pause"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.0
+offset_top = 27.0
+offset_right = -36.0
+offset_bottom = 87.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("7_p84o4")
+texture_pressed = ExtResource("8_f8drd")
+texture_hover = ExtResource("9_ws2a4")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Environment" type="Node2D" parent="."]
+process_mode = 1
+script = ExtResource("10_kjgod")
+
+[node name="Circle" parent="Environment" instance=ExtResource("10_p386j")]
+
+[node name="MoveLeft" type="TouchScreenButton" parent="Environment"]
+position = Vector2(-2777, -1355)
+scale = Vector2(6.58594, 6.94531)
+texture_normal = ExtResource("12_u1lqo")
+texture_pressed = ExtResource("12_u1lqo")
+shape_visible = false
+action = "move_left"
+
+[node name="MoveRight" type="TouchScreenButton" parent="Environment"]
+position = Vector2(599, -1536)
+scale = Vector2(6.13281, 6.94141)
+texture_normal = ExtResource("12_u1lqo")
+texture_pressed = ExtResource("12_u1lqo")
+action = "move_right"
+
+[node name="MovementControls" type="Node2D" parent="Environment"]
+
+[node name="Touch" type="Sprite2D" parent="Environment/MovementControls"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(243, 397)
+scale = Vector2(0.128333, 0.128333)
+texture = ExtResource("13_ifsuw")
+
+[node name="Touch2" type="Sprite2D" parent="Environment/MovementControls"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(1066, 397)
+scale = Vector2(0.128333, 0.128333)
+texture = ExtResource("13_ifsuw")
+
+[node name="Spawner" parent="Environment" instance=ExtResource("14_n1pm0")]
+
+[node name="Setup" type="Node2D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Setup"]
+environment = SubResource("Environment_a3k1r")
+script = ExtResource("13_p0yxc")
+
+[node name="Camera2D" type="Camera2D" parent="Setup"]
+position = Vector2(600, 325)
+
+[connection signal="pressed" from="CanvasLayer/Pause/PauseMenu/Restart" to="CanvasLayer/Pause" method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/PauseMenu/Menu" to="CanvasLayer/Pause" method="_on_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/PauseMenu/Quit" to="CanvasLayer/Pause" method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/PauseButton" to="CanvasLayer/Pause" method="_on_pause_button_pressed"]
+[connection signal="player_lives_changed" from="Environment/Circle" to="Environment" method="on_player_damage"]
+[connection signal="player_score_changed" from="Environment/Circle" to="Environment" method="on_player_score"]
+[connection signal="spawned" from="Environment/Spawner" to="Environment" method="spawned"]

@@ -18,7 +18,8 @@ func load_save():
 			"fullscreen": false
 		},
 		"skin": "Circle",
-		"coins": 0
+		"coins": 0,
+		"played": false
 	}
 	
 	if not FileAccess.file_exists("user://game.save"):

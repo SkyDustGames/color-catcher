@@ -1,5 +1,8 @@
 extends RigidBody2D
 
+signal player_lives_changed(lives)
+signal player_score_changed(score)
+
 @export var speed: float
 @onready var sprite = $Sprite2D
 
@@ -54,18 +57,20 @@ func add_score():
 		Global.save["score"] = highscore
 
 	scoreText.text = "Score: " + str(score)
+	player_score_changed.emit(score)
 	SoundManager.play("collect")
 
 func heal():
+	player_lives_changed.emit(3 if lives >= 3 else lives + 1)
 	if lives >= 3:
 		return
-	
 	hearts[lives].show()
 	lives += 1
 
 func damage():
 	lives -= 1
 	hearts[lives].hide()
+	player_lives_changed.emit(lives)
 	if lives <= 0:
 		Global.save.coins += score
 		Global.write_save(Global.save)

@@ -157,6 +157,40 @@ theme_override_fonts/font = ExtResource("3_jiu3b")
 theme_override_font_sizes/font_size = 50
 text = "Skins"
 
+[node name="Tutorial" type="TextureButton" parent="Main"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -47.5
+offset_top = -79.0
+offset_right = 47.5
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("3_fjj4i")
+texture_pressed = ExtResource("4_3ja5v")
+texture_hover = ExtResource("5_s5q3h")
+texture_disabled = ExtResource("5_s5q3h")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Main/Tutorial"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_jiu3b")
+theme_override_font_sizes/font_size = 25
+text = "Tutorial"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Quit" type="TextureButton" parent="Main"]
 layout_mode = 1
 anchors_preset = 3
@@ -432,6 +466,7 @@ script = ExtResource("10_yimyy")
 [connection signal="pressed" from="Main/Settings" to="Main" method="settings"]
 [connection signal="pressed" from="Main/Play" to="." method="play"]
 [connection signal="pressed" from="Main/Skins" to="Main" method="skins"]
+[connection signal="pressed" from="Main/Tutorial" to="Main" method="tutorial"]
 [connection signal="pressed" from="Main/Quit" to="." method="quit"]
 [connection signal="pressed" from="Settings/Back" to="Settings" method="back"]
 [connection signal="value_changed" from="Settings/Music" to="Settings" method="set_music"]

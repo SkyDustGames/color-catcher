@@ -1,5 +1,7 @@
 extends Timer
 
+signal spawned(new_shape, powerup)
+
 var shapes = [
 	preload("res://nodes/shapes/square.tscn"),
 	preload("res://nodes/shapes/circle.tscn"),
@@ -25,11 +27,13 @@ func _on_timeout():
 		var powerup = power.instantiate()
 		powerup.position = Vector2(randi_range(0, 1200), -100)
 		add_child(powerup)
+		spawned.emit(powerup, true)
 	else:
 		var shape_kind = shapes[randi() % shapes.size()]
 		var shape = shape_kind.instantiate()
 		shape.position = Vector2(randi_range(0, 1200), -100)
 		add_child(shape)
+		spawned.emit(shape, false)
 	
 	var t = wait_time - time_decrease
 	if t <= min_time:

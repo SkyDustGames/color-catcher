@@ -10,8 +10,14 @@ func _ready():
 		control.hide()
 
 func play():
-	SoundManager.play_music("old_tricks")
 	SoundManager.play("select")
+	if not Global.save.played:
+		Global.save.played = true
+		Global.write_save(Global.save)
+		SoundManager.play_music("starlight_city")
+		SceneTransition.change_scene("res://scenes/tutorial.tscn")
+		return
+	SoundManager.play_music("old_tricks")
 	SceneTransition.change_scene("res://scenes/game.tscn")
 
 func back_to_menu():

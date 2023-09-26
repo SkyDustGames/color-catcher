@@ -31,6 +31,7 @@ Currently, there is no way to do this. This section will be modified in the futu
 Game Design, Programming and Sound Effects by [SkyDustGames](https://skydust.itch.io)
 
 Music by [Zane Little](https://linktr.ee/zanelittle) (royalty-free)
-- Old Tricks
 - The Cool Factor
+- Starlight City
+- Old Tricks
 - Hush Hamlet

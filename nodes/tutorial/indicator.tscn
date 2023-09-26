@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjg0obdpodavf"]
+
+[ext_resource type="Texture2D" uid="uid://d4l5nbap5cbas" path="res://sprites/tutorial/arrow.png" id="1_stqy8"]
+
+[node name="indicator" type="Sprite2D"]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(94, -93)
+rotation = 2.35619
+scale = Vector2(0.175, 0.175)
+texture = ExtResource("1_stqy8")
