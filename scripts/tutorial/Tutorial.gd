@@ -4,15 +4,29 @@ var allow_spawn = false
 var indicator = preload("res://nodes/tutorial/indicator.tscn")
 @onready var player = $Circle
 
-func _process(_delta):
+func _ready():
+	if OS.get_model_name() == "GenericDevice":
+		show_pc_controls()
+
+func show_pc_controls():
+	var arrow = load("res://sprites/tutorial/arrow.png")
+	$MovementControls/Left.texture = arrow
+	$MovementControls/Left.flip_h = true
+	$MovementControls/Right.texture = arrow
+
+func _input(event):
 	if not allow_spawn:
-		if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
+		if event.is_action_pressed("move_left") or event.is_action_pressed("move_right"):
 			$MovementControls.queue_free()
 			allow_spawn = true
 
 func on_player_damage(lives):
 	if lives < 3:
 		player.heal()
+		$"../CanvasLayer/Warning".show()
+		$"../CanvasLayer/Warning/AnimationPlayer".play("flash")
+		await get_tree().create_timer(2).timeout
+		$"../CanvasLayer/Warning".hide()
 
 func on_player_score(score):
 	if score >= 5:

@@ -3,8 +3,12 @@ extends Control
 func _ready():
 	$Music.set_value_no_signal(Global.save.settings.volume[0])
 	$SoundEffects.set_value_no_signal(Global.save.settings.volume[1])
-	$Fullscreen.set_pressed_no_signal(Global.save.settings.fullscreen)
 	$PostProcessing.set_pressed_no_signal(Global.save.settings.post_processing)
+	
+	if OS.get_model_name() != "GenericDevice":
+		$Fullscreen.queue_free()
+	else:
+		$Fullscreen.set_pressed_no_signal(Global.save.settings.fullscreen)
 
 func back():
 	$"..".change_active($"../Main")

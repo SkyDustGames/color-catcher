@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d0u358c0dlmvr"]
+[gd_scene load_steps=21 format=3 uid="uid://d0u358c0dlmvr"]
 
 [ext_resource type="FontFile" uid="uid://btt0co084ey81" path="res://Raleway.ttf" id="1_1uotr"]
 [ext_resource type="Texture2D" uid="uid://cv34onredtgte" path="res://sprites/heal.png" id="2_prq8l"]
@@ -11,10 +11,48 @@
 [ext_resource type="Texture2D" uid="uid://djc8q2adrx1a4" path="res://sprites/buttons/pause_hover.png" id="9_ws2a4"]
 [ext_resource type="Script" path="res://scripts/tutorial/Tutorial.gd" id="10_kjgod"]
 [ext_resource type="PackedScene" uid="uid://bcr2tswsv0i7" path="res://nodes/player.tscn" id="10_p386j"]
+[ext_resource type="Texture2D" uid="uid://bb0anpkdvk1xo" path="res://sprites/tutorial/exclamation.png" id="10_t21xs"]
 [ext_resource type="Texture2D" uid="uid://dtgkv7saefrm4" path="res://sprites/empty.png" id="12_u1lqo"]
 [ext_resource type="Texture2D" uid="uid://opfnutd6owgn" path="res://sprites/tutorial/touch.png" id="13_ifsuw"]
 [ext_resource type="Script" path="res://scripts/WorldEnvironment.gd" id="13_p0yxc"]
 [ext_resource type="PackedScene" uid="uid://drtp3e75xjkrw" path="res://nodes/spawner.tscn" id="14_n1pm0"]
+
+[sub_resource type="Animation" id="Animation_jkrsw"]
+resource_name = "flash"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uevpb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qrtui"]
+_data = {
+"RESET": SubResource("Animation_uevpb"),
+"flash": SubResource("Animation_jkrsw")
+}
 
 [sub_resource type="Environment" id="Environment_a3k1r"]
 background_mode = 3
@@ -223,6 +261,20 @@ texture_hover = ExtResource("9_ws2a4")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="Warning" type="TextureRect" parent="CanvasLayer"]
+visible = false
+offset_left = 142.0
+offset_top = 158.0
+offset_right = 199.0
+offset_bottom = 215.0
+texture = ExtResource("10_t21xs")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Warning"]
+libraries = {
+"": SubResource("AnimationLibrary_qrtui")
+}
+
 [node name="Environment" type="Node2D" parent="."]
 process_mode = 1
 script = ExtResource("10_kjgod")
@@ -230,6 +282,7 @@ script = ExtResource("10_kjgod")
 [node name="Circle" parent="Environment" instance=ExtResource("10_p386j")]
 
 [node name="MoveLeft" type="TouchScreenButton" parent="Environment"]
+visible = false
 position = Vector2(-2777, -1355)
 scale = Vector2(6.58594, 6.94531)
 texture_normal = ExtResource("12_u1lqo")
@@ -238,6 +291,7 @@ shape_visible = false
 action = "move_left"
 
 [node name="MoveRight" type="TouchScreenButton" parent="Environment"]
+visible = false
 position = Vector2(599, -1536)
 scale = Vector2(6.13281, 6.94141)
 texture_normal = ExtResource("12_u1lqo")
@@ -246,16 +300,16 @@ action = "move_right"
 
 [node name="MovementControls" type="Node2D" parent="Environment"]
 
-[node name="Touch" type="Sprite2D" parent="Environment/MovementControls"]
+[node name="Left" type="Sprite2D" parent="Environment/MovementControls"]
 modulate = Color(1, 1, 1, 0.501961)
-position = Vector2(243, 397)
-scale = Vector2(0.128333, 0.128333)
+position = Vector2(100.463, 377.537)
+scale = Vector2(0.34556, 0.34556)
 texture = ExtResource("13_ifsuw")
 
-[node name="Touch2" type="Sprite2D" parent="Environment/MovementControls"]
+[node name="Right" type="Sprite2D" parent="Environment/MovementControls"]
 modulate = Color(1, 1, 1, 0.501961)
-position = Vector2(1066, 397)
-scale = Vector2(0.128333, 0.128333)
+position = Vector2(1099, 379)
+scale = Vector2(0.351276, 0.351276)
 texture = ExtResource("13_ifsuw")
 
 [node name="Spawner" parent="Environment" instance=ExtResource("14_n1pm0")]
