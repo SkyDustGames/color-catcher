@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cpn3k6nr748vg"]
+[gd_scene load_steps=18 format=3 uid="uid://cpn3k6nr748vg"]
 
 [ext_resource type="Texture2D" uid="uid://cv34onredtgte" path="res://sprites/heal.png" id="1_2h0xa"]
 [ext_resource type="FontFile" uid="uid://btt0co084ey81" path="res://Raleway.ttf" id="1_luub0"]
@@ -13,6 +13,9 @@
 [ext_resource type="Script" path="res://scripts/WorldEnvironment.gd" id="5_egtg2"]
 [ext_resource type="Texture2D" uid="uid://dtgkv7saefrm4" path="res://sprites/empty.png" id="5_kobak"]
 [ext_resource type="Texture2D" uid="uid://cjmxrwkios7qh" path="res://sprites/buttons/button_hover.png" id="6_d1g0w"]
+[ext_resource type="Texture2D" uid="uid://dlkhpqhw8f0ue" path="res://sprites/buttons/slow_hover.png" id="12_ryrlp"]
+[ext_resource type="Texture2D" uid="uid://omklugeecyer" path="res://sprites/buttons/slow_normal.png" id="13_wxn3h"]
+[ext_resource type="Texture2D" uid="uid://csd3ow0dqnscu" path="res://sprites/buttons/slow_press.png" id="14_yx4bb"]
 
 [sub_resource type="Environment" id="Environment_a3k1r"]
 background_mode = 3
@@ -221,6 +224,27 @@ texture_hover = ExtResource("5_7lokf")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="Slowdown" type="TextureButton" parent="CanvasLayer"]
+process_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -166.0
+offset_top = -156.0
+offset_right = -75.0
+offset_bottom = -65.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("13_wxn3h")
+texture_pressed = ExtResource("14_yx4bb")
+texture_hover = ExtResource("12_ryrlp")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="Environment" type="Node2D" parent="."]
 process_mode = 1
 
@@ -229,6 +253,7 @@ process_mode = 1
 [node name="Spawner" parent="Environment" instance=ExtResource("4_rg2xs")]
 
 [node name="MoveLeft" type="TouchScreenButton" parent="Environment"]
+visible = false
 position = Vector2(-2777, -1355)
 scale = Vector2(6.58594, 6.94531)
 texture_normal = ExtResource("5_kobak")
@@ -237,6 +262,7 @@ shape_visible = false
 action = "move_left"
 
 [node name="MoveRight" type="TouchScreenButton" parent="Environment"]
+visible = false
 position = Vector2(599, -1536)
 scale = Vector2(6.13281, 6.94141)
 texture_normal = ExtResource("5_kobak")
@@ -256,3 +282,4 @@ position = Vector2(600, 325)
 [connection signal="pressed" from="CanvasLayer/Pause/PauseMenu/Menu" to="CanvasLayer/Pause" method="_on_menu_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/PauseMenu/Quit" to="CanvasLayer/Pause" method="_on_quit_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/PauseButton" to="CanvasLayer/Pause" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Slowdown" to="Environment/Circle" method="toggle_slow"]

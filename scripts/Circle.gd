@@ -31,11 +31,16 @@ func _process(_delta):
 		movement = 1
 	elif Input.is_action_just_pressed("move_left"):
 		movement = -1
-
 	if Input.is_action_just_released("move_right"):
 		movement = -1 if Input.is_action_pressed("move_left") else 0
 	if Input.is_action_just_released("move_left"):
 		movement = 1 if Input.is_action_pressed("move_right") else 0
+	
+	if Input.is_action_just_pressed("slow_down"):
+		toggle_slow()
+
+func toggle_slow():
+	Engine.time_scale = 0.5 if Engine.time_scale == 1 else 1.0
 
 func _physics_process(delta):
 	position.x += movement * speed * delta
