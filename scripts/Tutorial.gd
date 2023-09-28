@@ -22,7 +22,6 @@ func _input(event):
 
 func on_player_damage(lives):
 	if lives < 3:
-		player.heal()
 		$"../CanvasLayer/Warning".show()
 		$"../CanvasLayer/Warning/AnimationPlayer".play("flash")
 		await get_tree().create_timer(2).timeout

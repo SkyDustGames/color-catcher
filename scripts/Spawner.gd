@@ -21,18 +21,28 @@ var powerups = [
 func _ready():
 	randomize()
 
+func spawn(list):
+	var object = list[randi() % len(list)].instantiate()
+	object.position = Vector2(randi_range(0, 1200), -100)
+	add_child(object)
+	return object
+
+func set_shape_color(shape, player):
+	shape.set_color(Global.colors[randi() % len(Global.colors)])
+	while shape.color == player.color:
+		shape.set_color(Global.colors[randi() % len(Global.colors)])
+
 func _on_timeout():
 	if randf() < powerup_chance:
-		var power = powerups[randi() % powerups.size()]
-		var powerup = power.instantiate()
-		powerup.position = Vector2(randi_range(0, 1200), -100)
-		add_child(powerup)
+		var powerup = spawn(powerups)
 		spawned.emit(powerup, true)
 	else:
-		var shape_kind = shapes[randi() % shapes.size()]
-		var shape = shape_kind.instantiate()
-		shape.position = Vector2(randi_range(0, 1200), -100)
-		add_child(shape)
+		var shape = spawn(shapes)
+		var player = $"../Circle"
+		if shape.name == (Global.save.skin + "Shape"):
+			shape.set_color(player.color)
+		else:
+			set_shape_color(shape, player)
 		spawned.emit(shape, false)
 	
 	var t = wait_time - time_decrease

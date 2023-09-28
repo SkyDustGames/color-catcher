@@ -9,13 +9,28 @@
 [ext_resource type="Texture2D" uid="uid://w3qw4cn20mea" path="res://sprites/buttons/pause_normal.png" id="7_p84o4"]
 [ext_resource type="Texture2D" uid="uid://cngh11spgwcud" path="res://sprites/buttons/pause_press.png" id="8_f8drd"]
 [ext_resource type="Texture2D" uid="uid://djc8q2adrx1a4" path="res://sprites/buttons/pause_hover.png" id="9_ws2a4"]
-[ext_resource type="Script" path="res://scripts/tutorial/Tutorial.gd" id="10_kjgod"]
 [ext_resource type="PackedScene" uid="uid://bcr2tswsv0i7" path="res://nodes/player.tscn" id="10_p386j"]
 [ext_resource type="Texture2D" uid="uid://bb0anpkdvk1xo" path="res://sprites/tutorial/exclamation.png" id="10_t21xs"]
+[ext_resource type="Script" path="res://scripts/Tutorial.gd" id="11_cpscg"]
 [ext_resource type="Texture2D" uid="uid://dtgkv7saefrm4" path="res://sprites/empty.png" id="12_u1lqo"]
 [ext_resource type="Texture2D" uid="uid://opfnutd6owgn" path="res://sprites/tutorial/touch.png" id="13_ifsuw"]
 [ext_resource type="Script" path="res://scripts/WorldEnvironment.gd" id="13_p0yxc"]
 [ext_resource type="PackedScene" uid="uid://drtp3e75xjkrw" path="res://nodes/spawner.tscn" id="14_n1pm0"]
+
+[sub_resource type="Animation" id="Animation_uevpb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_jkrsw"]
 resource_name = "flash"
@@ -31,21 +46,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_uevpb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qrtui"]
@@ -277,7 +277,7 @@ libraries = {
 
 [node name="Environment" type="Node2D" parent="."]
 process_mode = 1
-script = ExtResource("10_kjgod")
+script = ExtResource("11_cpscg")
 
 [node name="Circle" parent="Environment" instance=ExtResource("10_p386j")]
 
